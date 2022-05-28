@@ -1,31 +1,23 @@
 const {model, Schema}=require('mongoose')
 
-const courseSchema=new Schema({
+const facePhotoSchema=new Schema({
     creator:{
         type: Schema.Types.ObjectId,
         required: true
     },
-    shortID:{
-        type: String,
-        default: "abc"
-    },
-    code:{
+    photoURL:{
         type: String,
         required: true
     },
-    name:{
+    photoPublicID:{
         type: String,
         required: true
     },
-    session:{
+    faceDescriptor: {
         type: String,
         required: true
-    },
-    enrolledStudents: {
-        type: [Schema.Types.ObjectId],
-        ref: 'Person'
     }
 },
 {timestamps: true})
 
-module.exports=model('Course', courseSchema)
+module.exports=model('FacePhoto', facePhotoSchema)
